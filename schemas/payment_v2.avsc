@@ -1,0 +1,12 @@
+{
+  "type": "record",
+  "name": "PaymentCreated",
+  "namespace": "demo.billing",
+  "fields": [
+    {"name": "event_id", "type": "string"},
+    {"name": "user_id", "type": "string"},
+    {"name": "amount", "type": "double"},
+    {"name": "currency", "type": "string"},
+    {"name": "payment_method", "type": ["null", "string"], "default": null}
+  ]
+}

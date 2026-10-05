@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "name": "RefundCreated",
+  "namespace": "demo.billing",
+  "fields": [
+    {"name": "event_id", "type": "string"},
+    {"name": "payment_id", "type": "string"},
+    {"name": "refund_amount", "type": "double"},
+    {"name": "reason", "type": "string"}
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "type": "record",
+  "name": "BillingEnvelope",
+  "namespace": "demo.billing",
+  "fields": [
+    {"name": "event_id", "type": "string"},
+    {"name": "event_type", "type": "string"},
+    {"name": "timestamp", "type": "long", "doc": "Unix epoch milliseconds"},
+    {"name": "payload", "type": {
+      "type": "record", "name": "BillingPayload", "fields": [
+        {"name": "payment", "default": null, "type": ["null", {
+          "type": "record", "name": "PaymentPayload", "fields": [
+            {"name": "user_id", "type": "string"},
+            {"name": "amount", "type": "double"},
+            {"name": "currency", "type": "string"},
+            {"name": "payment_method", "type": ["null", "string"], "default": null}
+          ]
+        }]},
+        {"name": "refund", "default": null, "type": ["null", {
+          "type": "record", "name": "RefundPayload", "fields": [
+            {"name": "payment_id", "type": "string"},
+            {"name": "refund_amount", "type": "double"},
+            {"name": "reason", "type": "string"}
+          ]
+        }]}
+      ]
+    }}
+  ]
+}
